@@ -1,23 +1,47 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 public class atvPortugol {
         public static void main(String[] args) {
 
-                System.out.println("raiz: ,raiz(64)\n");
-                System.out.println("raiz com exp e log e realint: , rea1int(exp(1/2*1og(64)))\n");
-                System.out.println("raiz com exp e log sem realint: h',exp(1/2*log(64))\n");
-                System.out.println("formatar(sen(45*pi/180)+0.0001,3))\n");
-                System.out.println("potencia com exp e log e formatar: ,formatar(exp(3*log(8))+0.001,3)\n");
-                System.out.println("potencia com exp e log sem formatar: ,exp(3*1og(8))\n");
-                System.out.println("potencia com operador ** e formatar: uu,formatar(8**3,3)\n");
-                System.out.println("raiz cubica: ,exp(1/3*log(8))\n");
-                System.out.println("absoluto: ,abs(-8)\n");
-                System.out.println("absoluto: ,abs(8)\n");
-                System.out.println("convertendo para inteiro 5.5: ,realint(5.5)\n");
-                System.out.println("convertendo para inteiro 6.5: ,realint(6.5)\n");
-                System.out.println("convertendo para inteiro 6.5 + 0.0001: ,realint(6.5+0.0001)\n");
-                System.out.println("convertendo para inteiro 5.45: ,realint(5.45)\n");
-                System.out.println("convertendo para inteiro 5.51: ,realint(5.51)\n");
-                System.out.println("convertendo para real 87: ,intreal(87)\n");
-                System.out.println("convertendo para int 3/4: ,realint(314)\n");
+                try (Scanner scan = new Scanner(System.in)) {
+                        double a, b;
+                        System.out.println("Digite um numero: ");
+                        a = scan.nextDouble();
 
+                        b = Math.sqrt(a);
+                        System.out.println("A raiz de " + a + " e: " + b);
+
+                        b = Math.cbrt(a);
+                        System.out.println("O valor(raiz cubica) e: " + b);
+
+                        b = (Math.exp(1 / 2 * Math.log(a)));
+                        DecimalFormat formatador = new DecimalFormat(".0");
+                        System.out.println("O valor (int de exp, log) de " + a + " e: " + formatador.format(b));
+
+                        b = (Math.exp(1 / 2 * Math.log(a)));
+                        System.out.println("O valor de (exp, log) " + a + " e: " + b);
+
+                        b = (float) (Math.sin(45 * Math.PI / 180) + 0.00013);
+                        System.out.println("O valor((sen(45*pi/180)+0.0001,3) e: " + formatador.format(b));
+
+                        b = (Math.exp(3 * Math.log(8)) + 0.0013);
+                        System.out.println("O valor(potencia com exp e log) e: " + formatador.format(b));
+
+                        b = (Math.exp(3 * Math.log(8)) + 0.0013);
+                        System.out.println("O valor(potencia com exp e log) e: " + b);
+
+                        b = Math.exp(3 * Math.log(8));
+                        System.out.println("O valor(potencia com exp e log) e: " + b);
+
+                        b = Math.abs(-8);
+                        System.out.println("O valor(absoluto) e: " + b);
+
+                        System.out.println("O valor em float e: " + a);
+
+                        int c = (int) Math.round(a);
+                        System.out.println("O valor em int e: " + c);
+                        System.exit(0);
+                }
         }
 }
